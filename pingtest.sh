@@ -8,7 +8,7 @@ log="$datestamp-test_file.txt"
 read -p "What is the name of the csv file?: " file_name
 echo "Writing a log to $log_location "
 
-# IF CSV has more than 6 columns, please add them
+# IF CSV has more than 6 columns, please add them here (A = col1, B= col2, etc)
 while IFS=, read -r col1 col2 col3 col4 col5 col6
 do 
     if [[ $col1 = *"10"* ]]; then

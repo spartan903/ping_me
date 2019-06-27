@@ -7,6 +7,9 @@ talk(){
 
 no_ping(){
   echo "Could not ping $col1. Logging..."
+  # Just for fun, Comment/Uncomment it as needed.
+  talk "Sir. The IP Address at $col1 located in $col2 could not be pinged. Logging now."
+  
   echo "Could not ping $col1" >> $log_location/$log
   echo "Location: $col2" >> $log_location/$log
   echo "Description: $col3" >> $log_location/$log

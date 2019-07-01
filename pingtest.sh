@@ -2,13 +2,15 @@
 
 #Please have the file in the same directory as the script before running!
 talk(){
-  say -v Daniel -a 54 $1
+  # use 'say -v ?' to check out the different voices on machine. Edit as needed below.
+  # use 'say -a ?' to check out what kind of audio devices on machine. Edit as needed below.
+  say -v Daniel -a "Built-in Output" $1
 }
 
 no_ping(){
   echo "Could not ping $col1. Logging..."
   # Just for fun, Comment/Uncomment it as needed.
-  talk "Sir. The IP Address at $col1 located in $col2 could not be pinged. Logging now."
+  talk "$(whoami). The IP Address at $col1 located in $col2 could not be pinged. Logging now."
   
   echo "Could not ping $col1" >> $log_location/$log
   echo "Location: $col2" >> $log_location/$log
@@ -32,7 +34,11 @@ can_ping(){
 log_location="$(pwd)"
 datestamp=$(date +"%m%d%Y%H%M")
 log="$datestamp-test_file.txt"
+
 read -p "What is the name of the csv file?: " file_name
+
+#Uncomment below if the file is already known and/or planning to use the script in cron
+#file_name= "name_of_file"
 
 if test -f "$file_name"; then
 echo "File Found!"
